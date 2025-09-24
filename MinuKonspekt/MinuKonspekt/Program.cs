@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Threading.Channels;
 
 namespace MinuKonspekt
 {
@@ -137,7 +138,23 @@ namespace MinuKonspekt
             int sonyk = sony1! + sony2;
             Console.WriteLine(tulemus);
 
+            //4 parool, if ja string andmetüüp 
+            Console.WriteLine("Programmi edasiseks tööks sisesta palun parool:");
+            string password = Console.ReadLine();
 
+            if (password == "simsalabim")
+            {
+                Console.WriteLine("Parool on õige, aarete laegas avaneb");
+            }
+            else if (password == "saatana" || password == "1234")
+            {
+                Console.WriteLine("Parool on sobimatu, palun mingi muu");
+            }
+            else
+            {
+                Console.WriteLine("Parool on vale,proovi uuesti"); 
+            }
+         
         } 
     } 
 } 
