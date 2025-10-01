@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics.X86;
 using System.Threading.Channels;
 
 namespace MinuKonspekt
@@ -152,13 +154,13 @@ namespace MinuKonspekt
             }
             else
             {
-                Console.WriteLine("Parool on vale,proovi uuesti"); 
+                Console.WriteLine("Parool on vale,proovi uuesti");
             }
 
             //5 värvituvastus 
             Console.WriteLine("Milline värv sulle kõige rohkem meeldib?:");
-            string favouriteColour = Console.ReadLine(); 
-            if(favouriteColour == "punane")
+            string favouriteColour = Console.ReadLine();
+            if (favouriteColour == "punane")
             {
                 Console.BackgroundColor = ConsoleColor.Red;
             }
@@ -168,14 +170,78 @@ namespace MinuKonspekt
             }
             if (favouriteColour == "kollane") ;
             {
-                Console.BackgroudColor = ConsoleColor.Green;
+                Console.BackgroundColor = ConsoleColor.Green;
             }
             else
             {
                 Console.WriteLine("Värvi ei tunne");
             }
             Console.WriteLine("Värv muudetud!");
-         
+
+            // 
+            // \v/ ISESEISEV TÖÖ LÄHED SIIA 
+            //# Kolija kalkulaator - Kirjuta programm mis:
+            //#    - Küsib kasutajalt kas ta tahab ära mõõta pappkasti või õlitünni.
+            //#    - olenevalt kasutaja sisestusest küsib ta:
+            //#    - - tünni jaoks:
+            //#    - - - kas kasutaja teab põhja raadiust (r) või põhja läbimõõtu (d):
+            //#    - - - tünni kõrgust
+            //#    - - - kaane paksust (kaane paksus võtab tünni kõrgusest maha, kuna kaan võtab tünni sisust natuke ruumi)
+            //#    - - - Arvutab tünni ruumala mahu, tünni küljepindala, tünni kogupindala
+            //#    - - kasti jaoks:
+            //#    - - - Kas kast on kuubiku kujuline või risttahuka kujuline
+            //#    - - - - kui on kuubik, siis küsib kasutajalt ainult küljepikkust
+            //#    - - - - kui on risttahukas siis küsib kasutajalt:
+            //#    - - - - - pikima külje pikkust, 
+            //#    - - - - - lühima külje pikkust ja
+            //#    - - - - - kasti kõrgust
+            //#    - - arvutab vastavalt kasti kogupindala, mahu, ja pikima läbiva joone (d)
+
+            Console.WriteLine(" Kas sa tahad mõõta kasti või tünni?");
+            string sisend = Console.ReadLine();
+            //#     -olenevalt kasutaja sisestusest küsib ta:
+            
+            //#   - - tünni jaoks:
+            if (sisend == "tünn")
+            { 
+            //# - - - kas kasutaja teab põhja raadiust (r) võ põhja läbimõõtu (d):
+            Console.WriteLine("Tere see on kalkulaator");
+            Console.WriteLine("Kas soovid mõõta pappkasti või õlitünni? (kast/tünn): ");
+            string rvõid = Console.ReadLine();
+            Console.WriteLine("Kas sa tead tünni raadiust R või läbimõõtu D");
+            Console.WriteLine("Mis on selle raadius/läbimõõt? meetrites");
+            double kasutajamõõt = double.Parse(Console.ReadLine());
+            //# - - - tünni kõrgust 
+            Console.WriteLine("Kui kõrge on su tühn? meetrites");
+            double kõrgus = double.Parse(Console.ReadLine());
+            //# - - - kaane paksus, kuna kaan võtab tünni küljepindala, tünni kogupindala 
+            double Sp = 0;
+            if (rvõid == "R")
+            {
+                Sp = Math.PI * (kasutajamõõt * kasutajamõõt); 
+            }
+           else if (rvõid == "D")
+            {
+                kasutajamõõt = kasutajamõõt /2
+                    Sp = Math.PI * (kasutajamõõt * kasutajamõõt); 
+            }
+            double V = 0;
+            kõrgus = kõrgus - kaanepaksus;
+            V = Sp * kõrgus;
+            //Tünni ruumala on olemas. arvutame tünni kogupindala 
+            double S = Sp + Sk;
+            Console.WriteLine("sinu tünn mahutab {V}\nTünni küljepindala on{Sk}\nTünni kogupindala on {S}"); 
+
+
+
+
+
+
+
+
+
+
+
         } 
     } 
 } 
