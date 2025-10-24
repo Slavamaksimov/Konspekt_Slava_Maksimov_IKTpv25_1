@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Design;
 using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
 
 namespace MinuKonspekt
@@ -488,7 +489,32 @@ namespace MinuKonspekt
                                // on samamoodi sulgude vahel, ning millel pepab eelnema alat kus "if" või teine "else if". Tingimuse täitumisel
                                // ja eelneva tingimuse mittetäitumise, millele peab eelnem kas "if" või "else if", ning mille koodiplokki sisu 
             else { } //kaitstud sõna "else" kutsub esile järeltingimuse, millele peab eelnema kas "if" või "else if", ning mille koodiplokk sisu 
-                    //täidetakse kõikidel teiste "if" ja "else if" tingimuste läbikukkumisel. 
+                     //täidetakse kõikidel teiste "if" ja "else if" tingimuste läbikukkumisel. 
+            int option = 3; // --------
+            switch (option)//"switch" on kaitstud sõna alternatiivnse tingimuskontrolli jaoks mida saab ef else_if asemel kasutada.
+                           //sulgude vahel käib muutuja nimi, mille põhjal tingimuslik ümberlülitus toimub. Siin sulgude vahel.
+                           //ei ole tingimus ise, vaid kõigest kontrollitav muutuja, või omakord sulgude vahel muu tingimus.
+                           //pärast lülitusvalikut tuleb koodiplokk 
+            {
+                case 1:               //koodiploki see on erinevad juhtumid, juhtumit sätestatakse kaitsud sõna "case" abil. antud juhul kontrollitakse, 
+                                      //kas muutujas "option" on väärtus 1, millele järgneb koolon !:" väljendades tingimuse täitumisel tehtava
+                                      //kooditeguvuse algust
+                    break;           //kui tegevus on tehtud, väljutakse mitte ainult juhtumist vaid kogu käesolev case-tingimustikust kaitstud
+                                   //sõnaga "break". Peale breaki on läuselõpumärk ";" 
+                case 2:            //Juhtumeid võib olla mitmeid antud juhul on neid kolm kindlasti.
+                    break;
+                case 3:
+                    Console.WriteLine(option); //tehtav kooditegevus.
+                    break;
+                default:    //Default juhtumist täidetakse siis, kui ülejäänud juhtumid ei kirjelda muutujas "option" olevat seisu.
+                    break;  //Ka default lõppeb sõnaga break.
+            }
+
+            /* sõne tööriistad ja muud tekstiga sseotut */
+            string alfa = "a\nb";         // n -> tekitab ühe sõne sise reurde, sõne kus on see üks "\n", omab kahte rida.
+            string beta = $"a {alfa} b"; // $ -> lubab kasutada muutujaid loogeliste sulgudega otse teksti sees. on variant 
+                                         //      formateeritud stringist.
+                           
 
             /* Loogilied tehted */
 
@@ -530,17 +556,30 @@ namespace MinuKonspekt
             thing--;      // -- -> on spetsiifiliselt ühe maha liitmiseks kiirtehe.
 
             /* Tsüklid */
-            // !. do-while 
+            // 1. do-while 
+            int dew = 0;
             do // "do" on kaitstud sõna, mis alustab do-while tsüklit. Pärst seda on koodiplokk {} ning ütleb et tee seda koodi 
             {
+                dew++;
+            } while (dew != 5); //niikaua kuni whie järel olevate sulgude vahel tingimus ei täitu, käivitatakse eelnev kood uuesti. 
 
-            } while (true); //niikaua kuni whie järel olevate sulgude vahel tingimus ei täitu, käivitatakse eelnev kood uuesti. 
+            // 2. while
+            int i = 1;   //tsüklimuutuja mis aitab järge pidada while tsükli toimimisel 
+            while (i < 5) //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma "do-ta, ning vaab alati välist
+                           //tsüklimuutujat. antud juhul on selleks i. Tsükli tingimus, mis pele "while" sõna on, asub sulgude vahel,
+                           // siin kontrollitaksegi tsükli tööd, läbi kindla tingimuse kasutades tsüklimuutujat.
+                           //antud juhul tsükkel töötab iikaua, kuni i on väiksem kui 5. kui i on sama suur nagu, 5 siis tsükkel 
+                           //ketkeb. 
+            {
+                //koodiplokk kus midagi tehakse 
+                i++;     //ning seejärel muudrtakse tsüklimuutuja "i" olekut. antud juhul liidetakse 1 juurde kiirtehtega "++". 
+            }
 
 
 
         }
 
-        }     
+    }     
 }         
 
                   
