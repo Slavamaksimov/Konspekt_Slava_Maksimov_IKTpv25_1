@@ -417,50 +417,77 @@ namespace MinuKonspekt
             //tehte tulemus. Selle jaoks on Writeline funktsiooni patameetrina pandud muutuja
             //"tulemus" ilma tekstiks teisendamata. Lause lõppeb lauselõpumärgiga";".
 
-            //string kasutajaNimi = "";
-            //do
-            //{
-            //    Console.WriteLine("Palun sisesta oma kasutajanimi");
-            //    kasutajaNimi = Console.ReadLine();
-            //} while (kasutajaNimi != "user1");
-            //if (kasutajaNimi == "user1")
-            //{
-            //    int ruuduSuurus = 0;
+            Console.WriteLine("Sisesta ostusumma");
+            double ostusumma = double.Parse(Console.ReadLine()); 
+            if (ostusumma > 100)
+            {
+                Console.WriteLine("saad 20% allahindlust!!!!!!!!!!!!!!!!!!!!OMFGZEROONE!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+            else if(ostusumma < 101 && ostusumma > 50)
+            {
+                Console.WriteLine("Saad 10% allahindlust. c: yay");
+            }
+            else if(ostusumma < 51 && ostusumma > 20)
+            {
+                Console.WriteLine("5% allahindlust.");
+            }
+            else if (ostusumma < 21 && ostusumma > 0)
+            {
+                Console.WriteLine("allahindlust ei saa");
+            }
+            else
+            {
+                Console.WriteLine("Sisestatud on vigane arv");
+            }
 
-            //    do
-            //    {
-            //        Console.WriteLine("Kui suurt ruuta saada tahad?");
-            //        ruuduSuurus = int.Parse(Console.ReadLine());
-            //    } while (ruuduSuurus < 0 || ruuduSuurus > 20);
 
-            //    char reaKujund = '█';
-            //    string üksRida = "";
-            //    int tsükliMuutuja = ruuduSuurus;
 
-            //    do
-            //    {
-            //        üksRida = üksRida + "_" + reaKujund;
-            //        tsükliMuutuja = tsükliMuutuja - 1;
-            //    } while (tsükliMuutuja != 0);
 
-            //    tsükliMuutuja = ruuduSuurus;
 
-            //    do
-            //    {
-            //        Console.WriteLine(üksRida);
-            //        tsükliMuutuja -= 1;
-            //    } while (tsükliMuutuja != 0);
+                //string kasutajaNimi = "";
+                //do
+                //{
+                //    Console.WriteLine("Palun sisesta oma kasutajanimi");
+                //    kasutajaNimi = Console.ReadLine();
+                //} while (kasutajaNimi != "user1");
+                //if (kasutajaNimi == "user1")
+                //{
+                //    int ruuduSuurus = 0;
 
-            //    Console.WriteLine($"Palun, siis on sinu ruut, suurusega {ruuduSuurus}x{ruuduSuurus}");
-           //} 
+                //    do
+                //    {
+                //        Console.WriteLine("Kui suurt ruuta saada tahad?");
+                //        ruuduSuurus = int.Parse(Console.ReadLine());
+                //    } while (ruuduSuurus < 0 || ruuduSuurus > 20);
 
-            /* tingimuslause osad */ 
-            if (true) {} //kaitstud sõna if esile tingimuslause, mille tingimus on sulgude vahel, ning millele järgneb 
-                         // koodiplokk tingimuse täitumisel teostatav koodiga 
-            else if(true) {} // kaitstud sõnad "else" ja "if" (else if) kutsuvad esile sekundaarse tingimuslause, mille tingimus 
-                             // on samamoodi sulgude vahel, ning millel pepab eelnema alat kus "if" või teine "else if". Tingimuse täitumisel
-                             // ja eelneva tingimuse mittetäitumise, millele peab eelnem kas "if" või "else if", ning mille koodiplokki sisu 
-            else {} //kaitstud sõna "else" kutsub esile järeltingimuse, millele peab eelnema kas "if" või "else if", ning mille koodiplokk sisu 
+                //    char reaKujund = '█';
+                //    string üksRida = "";
+                //    int tsükliMuutuja = ruuduSuurus;
+
+                //    do
+                //    {
+                //        üksRida = üksRida + "_" + reaKujund;
+                //        tsükliMuutuja = tsükliMuutuja - 1;
+                //    } while (tsükliMuutuja != 0);
+
+                //    tsükliMuutuja = ruuduSuurus;
+
+                //    do
+                //    {
+                //        Console.WriteLine(üksRida);
+                //        tsükliMuutuja -= 1;
+                //    } while (tsükliMuutuja != 0);
+
+                //    Console.WriteLine($"Palun, siis on sinu ruut, suurusega {ruuduSuurus}x{ruuduSuurus}");
+                //} 
+
+                /* tingimuslause osad */
+                if (true) { } //kaitstud sõna if esile tingimuslause, mille tingimus on sulgude vahel, ning millele järgneb 
+                              // koodiplokk tingimuse täitumisel teostatav koodiga 
+            else if (true) { } // kaitstud sõnad "else" ja "if" (else if) kutsuvad esile sekundaarse tingimuslause, mille tingimus 
+                               // on samamoodi sulgude vahel, ning millel pepab eelnema alat kus "if" või teine "else if". Tingimuse täitumisel
+                               // ja eelneva tingimuse mittetäitumise, millele peab eelnem kas "if" või "else if", ning mille koodiplokki sisu 
+            else { } //kaitstud sõna "else" kutsub esile järeltingimuse, millele peab eelnema kas "if" või "else if", ning mille koodiplokk sisu 
                     //täidetakse kõikidel teiste "if" ja "else if" tingimuste läbikukkumisel. 
 
             /* Loogilied tehted */
