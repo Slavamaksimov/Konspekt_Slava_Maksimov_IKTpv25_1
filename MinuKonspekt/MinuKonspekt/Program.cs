@@ -265,16 +265,41 @@ namespace MinuKonspekt
             double d = 5.6d; // double on 64-bitine komakohaga arv 
             char cl = 'a'; // üksainus täht või tähemärk mis tähistatakse ülakomadga '' 
             string s = "tekst"; //tähtadest koosnev sõna või tekst, tähistatakse jutumärkidega ""
-            var x = "abc" //var on ebamäärse andmetüübiga kohalik muutuja 
+            var x = "abc";//var on ebamäärse andmetüübiga kohalik muutuja 
             var y = 123; //ta võib omada endas teisi andmetüüpe  
             const int z = 9; // konstant-tüüpi muutujaid ei saa muuta, nende sisu on read-only
+
+            /* Võimalikud komposiitandmetüübid */
+            // 1. masiiv:
+            // [] ->  Masiiv on komposiitandmetüüp, mille sees saab olla mitmeid sama tüüpi lihtandmeid. Masiivi tähistatakse kantsulgudega
+            //        Masiive saab olla ükskõik millist lihtandmetüüpi masiive.
+            //        Masiivi tekitamisel tuleb ära öelda kui pikk või kui suur see masiiv on.
+            //        Masiiv ei pea olema koostatud ainult lihtametüüpidest, vaid masiive saab olla ka tehtud teistest komposiitandmetüüpidest
+            //        Sealhulgas masiiv ise.
+            // Esimene tekitusviis. 
+            int[]arvuMasiiv = new int[3];    // andmetüüp int väljendab et tegu on täisarvutüüpi andmega ja kantsulud väljendavad et ühtlasi on 
+                                             // tegu ka masiiviga. muutuja nimeks on "arvuMasiivi" ja võrdusmärgi abil on omistatud muutujasse 
+                                             // uus tühi masiiv kasutajades kaitstud sõna "new" millele järgneb selle masiive andmetüübi ja 
+                                             // pikkuse sätetsus "int[3]" . See tähendab et siin masiivis on 3 elementi, mis on täisarvud.
+             // Teine tekitusviis:
+            int[] arvuMasiiv2 = [1, 2, 3];  // teine masiivi tekitusviis kus järjendi pikkuse sätestamise asemel, pannakse elemendid kohe 
+                                            //järjendit omava muutuja sisse, järjendi pikkust sätestama ei pea, kuna pikkuse tuletab kompilaator
+                                            //sina sisse pandud elementide koduse järgi.
+                                            // -- masiivi sisemised metodid
+            int hasThisMany = arvuMasiiv.Length;  // masiivi meetod "Length" mille me saame kasutusele vtta punkti abil, loendab kokku 
+                                                   // mitu elementi, adresseeritav masiiv omab, omistatakse ainult järjendi pikkus, mitte 
+                                                   //järjendi sees olevaid elemente. 
+
+
+
+
 
             //põhilised matemaatilised tehted 
             int liitmine = 1 + 1; //liitmine, kaks arvu liidetakse kokku 
             int lahutamine = 1 - 1; //lahutamine, kus esimesest arvust lahutatakse maha teine
             double korrutamine = 1 * 2 //korrutamine, kus teine arv korrutatakse esimese arvu kordi.
             double jagamine = 1 / 2; //jagamine. esimene arv jagatakse teise arvuga.
-            double astendamine = Math.Pow(2.2) //astndamine, esimene arv astendatakse teisega 
+            double astendamine = Math.Pow(2.2); //astndamine, esimene arv astendatakse teisega 
             double juurimine = Math.Spqrt(2); //ruutjuur, parameetrina juuritav arv 
 
             // muutuja nimed 
@@ -574,7 +599,20 @@ namespace MinuKonspekt
                 //koodiplokk kus midagi tehakse 
                 i++;     //ning seejärel muudrtakse tsüklimuutuja "i" olekut. antud juhul liidetakse 1 juurde kiirtehtega "++". 
             }
-
+            // 3. for 
+            int kogus = 6;  //muutuja mida tsükkel kasutab oma töö tegimiseks - teisisõnu, töödeldav materjal 
+            for ( int k = 0; k < kogus; k++) // kaitstud sõnaa "for" alustab for-tsüklit, pärast mida on sulud, mille vahel on kõik tsükli
+                                             // töö jaoks vajalik olemas. Esimene parameeter, tekitab tsükli töö jaoks kohaliku muutuja
+                                             // "int k = 0;" mida tsükli ENDA töö juhtimiseks. Teine parameeter on tingimuslause, mis kontrollib 
+                                             // tingimuse täitumist " k < kogus;" ning mile täitumisel tsükli töö jatkub, aga mille 
+                                             // mitte-täitumisel tsükkel katkeb. Klmas parameeter on tsüklimuutuja inkrementeerimine kiirtehtega 
+                                             // "k++". Pane tähele, et iga sulgude vahel oleva osa järel ( välja arvatud viimase) on
+                                             // lauselõpumrk. Tsükli tööd kontrolliv tingimuslause koosneb olmest reast, mitte ühest 
+                                             // nagu "while" või "do-while" puhul. 
+                                             // sulgudele järgneb, loogeliste sulgude vahel ole koodiplikk {}
+            {
+                Console.WriteLine(k);  // töötlustegevus tsükli sees, on muutuja "k" hetkearvu väljakuvamine.
+            }
 
 
         }
