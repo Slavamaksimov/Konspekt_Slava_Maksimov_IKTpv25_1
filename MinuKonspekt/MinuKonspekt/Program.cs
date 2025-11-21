@@ -613,7 +613,7 @@ namespace MinuKonspekt
             {
                 Console.WriteLine(k);  // töötlustegevus tsükli sees, on muutuja "k" hetkearvu väljakuvamine.
             }
-
+            
 
         }
 
