@@ -268,7 +268,8 @@ namespace MinuKonspekt
             var x = "abc";//var on ebamäärse andmetüübiga kohalik muutuja 
             var y = 123; //ta võib omada endas teisi andmetüüpe  
             const int z = 9; // konstant-tüüpi muutujaid ei saa muuta, nende sisu on read-only
-
+            //void on andmetüüp, mida muutuja tekitamisel kasutada ei saa. Kasutatakse ainult meetodite signatuurides väljendamaks et
+            //meetod ei tagasta midagi.
             /* Võimalikud komposiitandmetüübid */
             // 1. masiiv:
             // [] ->  Masiiv on komposiitandmetüüp, mille sees saab olla mitmeid sama tüüpi lihtandmeid. Masiivi tähistatakse kantsulgudega
@@ -277,18 +278,18 @@ namespace MinuKonspekt
             //        Masiiv ei pea olema koostatud ainult lihtametüüpidest, vaid masiive saab olla ka tehtud teistest komposiitandmetüüpidest
             //        Sealhulgas masiiv ise.
             // Esimene tekitusviis. 
-            int[]arvuMasiiv = new int[3];    // andmetüüp int väljendab et tegu on täisarvutüüpi andmega ja kantsulud väljendavad et ühtlasi on 
-                                             // tegu ka masiiviga. muutuja nimeks on "arvuMasiivi" ja võrdusmärgi abil on omistatud muutujasse 
-                                             // uus tühi masiiv kasutajades kaitstud sõna "new" millele järgneb selle masiive andmetüübi ja 
-                                             // pikkuse sätetsus "int[3]" . See tähendab et siin masiivis on 3 elementi, mis on täisarvud.
-             // Teine tekitusviis:
+            int[] arvuMasiiv = new int[3];    // andmetüüp int väljendab et tegu on täisarvutüüpi andmega ja kantsulud väljendavad et ühtlasi on 
+                                              // tegu ka masiiviga. muutuja nimeks on "arvuMasiivi" ja võrdusmärgi abil on omistatud muutujasse 
+                                              // uus tühi masiiv kasutajades kaitstud sõna "new" millele järgneb selle masiive andmetüübi ja 
+                                              // pikkuse sätetsus "int[3]" . See tähendab et siin masiivis on 3 elementi, mis on täisarvud.
+                                              // Teine tekitusviis:
             int[] arvuMasiiv2 = [1, 2, 3];  // teine masiivi tekitusviis kus järjendi pikkuse sätestamise asemel, pannakse elemendid kohe 
                                             //järjendit omava muutuja sisse, järjendi pikkust sätestama ei pea, kuna pikkuse tuletab kompilaator
                                             //sina sisse pandud elementide koduse järgi.
                                             // -- masiivi sisemised metodid
             int hasThisMany = arvuMasiiv.Length;  // masiivi meetod "Length" mille me saame kasutusele vtta punkti abil, loendab kokku 
-                                                   // mitu elementi, adresseeritav masiiv omab, omistatakse ainult järjendi pikkus, mitte 
-                                                   //järjendi sees olevaid elemente. 
+                                                  // mitu elementi, adresseeritav masiiv omab, omistatakse ainult järjendi pikkus, mitte 
+                                                  //järjendi sees olevaid elemente. 
 
 
 
@@ -417,7 +418,7 @@ namespace MinuKonspekt
             //samal kujul nagu võrdusmärkidest teisel pool olev tekst "^" kei eelnev tingimus ei 
             //töitnud. Lause siin ei lõppe, vaid tingimusele järgneb koodiplokk.
             {
-                tulemus = (int)Math.Pow(arv1, arv2); 
+                tulemus = (int)Math.Pow(arv1, arv2);
             }
             //peale tingimust on koodiplokk {} loogileste sulgude vahel, mis sisaldab endas ühte
             //koodirida. Selles lauses omistatakse võrdusmärgi abil muutujasse "tulemus" mille saame 
@@ -444,16 +445,16 @@ namespace MinuKonspekt
             //"tulemus" ilma tekstiks teisendamata. Lause lõppeb lauselõpumärgiga";".
 
             Console.WriteLine("Sisesta ostusumma");
-            double ostusumma = double.Parse(Console.ReadLine()); 
+            double ostusumma = double.Parse(Console.ReadLine());
             if (ostusumma > 100)
             {
                 Console.WriteLine("saad 20% allahindlust!!!!!!!!!!!!!!!!!!!!OMFGZEROONE!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
-            else if(ostusumma < 101 && ostusumma > 50)
+            else if (ostusumma < 101 && ostusumma > 50)
             {
                 Console.WriteLine("Saad 10% allahindlust. c: yay");
             }
-            else if(ostusumma < 51 && ostusumma > 20)
+            else if (ostusumma < 51 && ostusumma > 20)
             {
                 Console.WriteLine("5% allahindlust.");
             }
@@ -470,46 +471,46 @@ namespace MinuKonspekt
 
 
 
-                //string kasutajaNimi = "";
-                //do
-                //{
-                //    Console.WriteLine("Palun sisesta oma kasutajanimi");
-                //    kasutajaNimi = Console.ReadLine();
-                //} while (kasutajaNimi != "user1");
-                //if (kasutajaNimi == "user1")
-                //{
-                //    int ruuduSuurus = 0;
+            //string kasutajaNimi = "";
+            //do
+            //{
+            //    Console.WriteLine("Palun sisesta oma kasutajanimi");
+            //    kasutajaNimi = Console.ReadLine();
+            //} while (kasutajaNimi != "user1");
+            //if (kasutajaNimi == "user1")
+            //{
+            //    int ruuduSuurus = 0;
 
-                //    do
-                //    {
-                //        Console.WriteLine("Kui suurt ruuta saada tahad?");
-                //        ruuduSuurus = int.Parse(Console.ReadLine());
-                //    } while (ruuduSuurus < 0 || ruuduSuurus > 20);
+            //    do
+            //    {
+            //        Console.WriteLine("Kui suurt ruuta saada tahad?");
+            //        ruuduSuurus = int.Parse(Console.ReadLine());
+            //    } while (ruuduSuurus < 0 || ruuduSuurus > 20);
 
-                //    char reaKujund = '█';
-                //    string üksRida = "";
-                //    int tsükliMuutuja = ruuduSuurus;
+            //    char reaKujund = '█';
+            //    string üksRida = "";
+            //    int tsükliMuutuja = ruuduSuurus;
 
-                //    do
-                //    {
-                //        üksRida = üksRida + "_" + reaKujund;
-                //        tsükliMuutuja = tsükliMuutuja - 1;
-                //    } while (tsükliMuutuja != 0);
+            //    do
+            //    {
+            //        üksRida = üksRida + "_" + reaKujund;
+            //        tsükliMuutuja = tsükliMuutuja - 1;
+            //    } while (tsükliMuutuja != 0);
 
-                //    tsükliMuutuja = ruuduSuurus;
+            //    tsükliMuutuja = ruuduSuurus;
 
-                //    do
-                //    {
-                //        Console.WriteLine(üksRida);
-                //        tsükliMuutuja -= 1;
-                //    } while (tsükliMuutuja != 0);
+            //    do
+            //    {
+            //        Console.WriteLine(üksRida);
+            //        tsükliMuutuja -= 1;
+            //    } while (tsükliMuutuja != 0);
 
-                //    Console.WriteLine($"Palun, siis on sinu ruut, suurusega {ruuduSuurus}x{ruuduSuurus}");
-                //} 
+            //    Console.WriteLine($"Palun, siis on sinu ruut, suurusega {ruuduSuurus}x{ruuduSuurus}");
+            //} 
 
-                /* tingimuslause osad */
-                if (true) { } //kaitstud sõna if esile tingimuslause, mille tingimus on sulgude vahel, ning millele järgneb 
-                              // koodiplokk tingimuse täitumisel teostatav koodiga 
+            /* tingimuslause osad */
+            if (true) { } //kaitstud sõna if esile tingimuslause, mille tingimus on sulgude vahel, ning millele järgneb 
+                          // koodiplokk tingimuse täitumisel teostatav koodiga 
             else if (true) { } // kaitstud sõnad "else" ja "if" (else if) kutsuvad esile sekundaarse tingimuslause, mille tingimus 
                                // on samamoodi sulgude vahel, ning millel pepab eelnema alat kus "if" või teine "else if". Tingimuse täitumisel
                                // ja eelneva tingimuse mittetäitumise, millele peab eelnem kas "if" või "else if", ning mille koodiplokki sisu 
@@ -525,7 +526,7 @@ namespace MinuKonspekt
                                       //kas muutujas "option" on väärtus 1, millele järgneb koolon !:" väljendades tingimuse täitumisel tehtava
                                       //kooditeguvuse algust
                     break;           //kui tegevus on tehtud, väljutakse mitte ainult juhtumist vaid kogu käesolev case-tingimustikust kaitstud
-                                   //sõnaga "break". Peale breaki on läuselõpumärk ";" 
+                                     //sõnaga "break". Peale breaki on läuselõpumärk ";" 
                 case 2:            //Juhtumeid võib olla mitmeid antud juhul on neid kolm kindlasti.
                     break;
                 case 3:
@@ -539,7 +540,7 @@ namespace MinuKonspekt
             string alfa = "a\nb";         // n -> tekitab ühe sõne sise reurde, sõne kus on see üks "\n", omab kahte rida.
             string beta = $"a {alfa} b"; // $ -> lubab kasutada muutujaid loogeliste sulgudega otse teksti sees. on variant 
                                          //      formateeritud stringist.
-                           
+
 
             /* Loogilied tehted */
 
@@ -591,29 +592,99 @@ namespace MinuKonspekt
             // 2. while
             int i = 1;   //tsüklimuutuja mis aitab järge pidada while tsükli toimimisel 
             while (i < 5) //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma "do-ta, ning vaab alati välist
-                           //tsüklimuutujat. antud juhul on selleks i. Tsükli tingimus, mis pele "while" sõna on, asub sulgude vahel,
-                           // siin kontrollitaksegi tsükli tööd, läbi kindla tingimuse kasutades tsüklimuutujat.
-                           //antud juhul tsükkel töötab iikaua, kuni i on väiksem kui 5. kui i on sama suur nagu, 5 siis tsükkel 
-                           //ketkeb. 
+                          //tsüklimuutujat. antud juhul on selleks i. Tsükli tingimus, mis pele "while" sõna on, asub sulgude vahel,
+                          // siin kontrollitaksegi tsükli tööd, läbi kindla tingimuse kasutades tsüklimuutujat.
+                          //antud juhul tsükkel töötab iikaua, kuni i on väiksem kui 5. kui i on sama suur nagu, 5 siis tsükkel 
+                          //ketkeb. 
             {
                 //koodiplokk kus midagi tehakse 
                 i++;     //ning seejärel muudrtakse tsüklimuutuja "i" olekut. antud juhul liidetakse 1 juurde kiirtehtega "++". 
             }
             // 3. for 
             int kogus = 6;  //muutuja mida tsükkel kasutab oma töö tegimiseks - teisisõnu, töödeldav materjal 
-            for ( int k = 0; k < kogus; k++) // kaitstud sõnaa "for" alustab for-tsüklit, pärast mida on sulud, mille vahel on kõik tsükli
-                                             // töö jaoks vajalik olemas. Esimene parameeter, tekitab tsükli töö jaoks kohaliku muutuja
-                                             // "int k = 0;" mida tsükli ENDA töö juhtimiseks. Teine parameeter on tingimuslause, mis kontrollib 
-                                             // tingimuse täitumist " k < kogus;" ning mile täitumisel tsükli töö jatkub, aga mille 
-                                             // mitte-täitumisel tsükkel katkeb. Klmas parameeter on tsüklimuutuja inkrementeerimine kiirtehtega 
-                                             // "k++". Pane tähele, et iga sulgude vahel oleva osa järel ( välja arvatud viimase) on
-                                             // lauselõpumrk. Tsükli tööd kontrolliv tingimuslause koosneb olmest reast, mitte ühest 
-                                             // nagu "while" või "do-while" puhul. 
-                                             // sulgudele järgneb, loogeliste sulgude vahel ole koodiplikk {}
+            for (int k = 0; k < kogus; k++) // kaitstud sõnaa "for" alustab for-tsüklit, pärast mida on sulud, mille vahel on kõik tsükli
+                                            // töö jaoks vajalik olemas. Esimene parameeter, tekitab tsükli töö jaoks kohaliku muutuja
+                                            // "int k = 0;" mida tsükli ENDA töö juhtimiseks. Teine parameeter on tingimuslause, mis kontrollib 
+                                            // tingimuse täitumist " k < kogus;" ning mile täitumisel tsükli töö jatkub, aga mille 
+                                            // mitte-täitumisel tsükkel katkeb. Klmas parameeter on tsüklimuutuja inkrementeerimine kiirtehtega 
+                                            // "k++". Pane tähele, et iga sulgude vahel oleva osa järel ( välja arvatud viimase) on
+                                            // lauselõpumrk. Tsükli tööd kontrolliv tingimuslause koosneb olmest reast, mitte ühest 
+                                            // nagu "while" või "do-while" puhul. 
+                                            // sulgudele järgneb, loogeliste sulgude vahel ole koodiplikk {}
             {
                 Console.WriteLine(k);  // töötlustegevus tsükli sees, on muutuja "k" hetkearvu väljakuvamine.
             }
-            
+            /*Meetoddid*/
+
+            // Meetodid on väljakutsutavad koodijupid. Meetodid teostavad tavaliselt mingeid spetsiifilised funktsioone või tegevusi.
+            // Meetodid lasevad programmeerijal taaskasutada oma eelnevalt kirjutatud koodi - write once use many times.
+            // Meetodeid on kahte liiki - ühed, mis tagastavad mingisuguse töö või tegevuse tagajärjel või tulemusena andmeid, ja teised.
+            // mis ei tagasta midagi, kui omavad siiski mingit tegevust.
+
+            // Meetodi signatuur & selle kompositsioon:
+            // Meetodi signatuur on kõige esimene rida, mis meetodi tekitamiseks kirjutatakse, ning mis kirjeldab, meetodit ennast, ning selle 
+            // omadusi.
+            // Meetodi signatuur koosneb mitmest kindlast ärmääratud omaduseset. Nendeks on juurdepäsu modifikaator, tagastustüüp,
+            // meetodi enda nimi, olenevalt meetodi liigist ka parameetrid mis on sulgude vahel (), ning koodipokist mis on meetodi sisu.
+            // - Juurdepääsu modifikaator ütleb ära, kust ja kuidas seda meetodit välja kutsuda või adresseerida saab. Juurdepääsu modi-
+            // fikaatoreid on tähtsamatest 4-5 tükki
+            // 1 - public --- meetod on avalik ja kättesaadav ka teistes klassides, peale selle klassi, kus meetodisse asub.
+            // 2 - private --- meetod on saadav ainult selles klassis kui meetod ise asub.
+            // 2 - protected --- meetod on saadav ainult selles klassis kus meetod ise asub ja klassis mis pärilusega saab
+            // 4 - internal --- meetod on saadav ainult selles klassis ja ainult selles failis. 
+            // 5 - static --- vahest võib olla pandud ka static, see ütleb lihtsalt et see meetod asub siin.
+            // 
+            // - Tagastustüüp on meetod omadus, mis ütleb ära mis tüüpi andmed, meetodi väljakutsumise asukohta tagastatakse, kui üldse.
+            // Andmetüüp, mida tagastada, võib olla ükskõik milline liht- või kombinatsioonandmetüüp. Aga kui meetod ei tagasta üldse andmeid
+            // pannakse selle asemel andmetüübiks "võid". Kui meetodil on tagastustüüp mis on midagi muud kui void, on meetodi sees, iga toiniva
+            // koodisuuna lõpus kaitstud sõna "return", return ütleb, et just see asi on vaja tagastada. peale returni on alati mingisugune kindel
+            // muutuja, või tegevuse tulemus, mis tagastatakse meetodi väljakutseasukohta, peaele käivitatud returni, ei teostata mitte ühtegi
+            // muud meetodis olevat koodi, sest meetod on leinud oma tagastatava objekti, ning meetodi töö sellele hetkel katkestatakse 
+            // Return on osaliselt ka kui break
+            //
+            // - Meetodi enda nimi on midagi mille järgi arendaja meetodit kasutab, kutsub koodis välja, ning meetodi nimi peaks kuvama
+            //üldsõnaliselt mida see meetod teeb. Näites meetod nimega "A();" ei ole hea, sest sõna "A" ei ütle programmeerijale mitte midagi.
+            //Aga näiteks meetod, nimega "ArvutaArvudKokku();" Ütleb arendajale ära, mida see meetod teeb. Ta ei raiska oma aega, selle 
+            //
+            // - Parameetrid on need, mis ütlevad, mis meetodil tema tääks vaja on,. Parameeter, meetodi signatuuris võib olla teistmoodi
+            // //
+            // 1. tüüpi meetod - ei tagasta midagi:
+            public static void UusMeetod() // meetodi signatuur, mis juurdepääsumodifikaatorit "public", "static" ütleb et ta kuulub sellesse
+                                           // klassi. Tagastustüüp on "void" mis ütlb et andmeid meie meetod ei tagasta. Pärast omadusi on selle
+                                           // Meetodi nimi "uusMeetod" peale mida on sulud, kus parameetreid ei ole.
+                                           // pärast signatuuri on koodiplokk selle meetodi koodiga, logeliste sulgude vahel {}
+        {
+            Console.WriteLine("Tere"); // ainult juhul on meetodi sisuks sõnumi kuvamine, mooduli "Console" abiga, mille seest punkti abil "."
+                                       // adresseerime Console meetodit "WriteLine", ning mille parameetriks on sõne "Tere" , parameeter asub
+                                       // peale meetodi nime olevate sulgude vahel. Lause lõppeb lauselõpumärgiga ";"
+                                       // See arendaja poold kirjutatud meetod rokem koodi ei ome.
+        }
+
+        // 2. tüüpi meetod - tagastab väärtuse:
+        int[] arvutatavadArvud = new int[] { 67, 69, 420, 9001 }; //Töödeldavad andmed, mis asuvad täisarvumassiivis, muutujanimega
+                                                                   //"arvutatavadArvud".
+
+        public static int ArvutaKokku(int[] arvud)//Meetod mille signatuuris on juurdepääsumodifikaator "public", "static" ütleb et ta kuulub 
+                                                    //sellesse klassi, tagastustüüp "int" ütleb, et programmis tagastatakse täisarv asukohta
+                                                    //koodis kus meetod algselt välja kutsuti. Siis on meetdi nii "ArvutaKokku", ning sulgude
+                                                    //vahel ootab meetod täisarvumassiivi. Sellele massiivil pannakse meetodi sisselt ajutine 
+                                                    //nimi "arvud". Meetod ootab esimese parameetri asukohal just arvumasiiv olenemata mis 
+                                                    //tema muutuja nimi on. Peale signatuuri on koodiplokk tehatava abil arv 0. Lause
+
+        {
+            int summa = 0; //tekitasme täisarvundametüüpi muutuja nimega "summa", kuhu esialgu omistatakse võrdusmärgi abil arv 0. Lause
+                           //lõppeb lauselõpumärgiga";"
+            foreach (var arv in arvud) //tekitame "foreach" tsükli, mille kogumikuks on meetodisisene arvudemasiiv nimega "arvud", mille 
+                                       //iga elemendi ajutise muutuja nimi on "arv"
+            { //peale seda on koodiplokk
+                summa += arv; // muutujale summa omistatakse += märgga juurde hetkel tsüklis kasutuse
+            }
+            return summa;
+        } 
+
+
+
+
 
         }
 
