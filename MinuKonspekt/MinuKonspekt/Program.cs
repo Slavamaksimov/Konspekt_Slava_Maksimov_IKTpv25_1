@@ -300,8 +300,38 @@ namespace MinuKonspekt
             int lahutamine = 1 - 1; //lahutamine, kus esimesest arvust lahutatakse maha teine
             double korrutamine = 1 * 2 //korrutamine, kus teine arv korrutatakse esimese arvu kordi.
             double jagamine = 1 / 2; //jagamine. esimene arv jagatakse teise arvuga.
+
+            //Matemaatilised tehred moodulist "Math"
             double astendamine = Math.Pow(2.2); //astndamine, esimene arv astendatakse teisega 
             double juurimine = Math.Spqrt(2); //ruutjuur, parameetrina juuritav arv 
+            double newD = 4.0000001d;
+            Math.Round(newD);  //Moodulist "Math" kutsutakse esile punkti abil meetod "Round" , sulgude vahel on esimese parameetrina 
+                               //ümardatav arv, teise parameetrina komakohtade arv. Round ümardab sulgude vahel oleva arvväärtuse
+                               //teises parameetris oleva komakohtadeni. Kui komakohti ei ole seatud, ümardatakse lähima täisarvuni.
+                               //0-4 ümardatakse allapoole, 5-9 ümardatakse ülespoole.
+            double newPI = Math.PI; //Moodulist "Math" kutsutakse punkti abil esile kaitstud väärtus, PI, mis väljendab mate
+                                    //maatilist pi-d ja seda saab kasutada nagu tavaline arv.
+
+            //Castimine, ehk arvu teisendus ühest andmetüübist teise 
+             
+            //Castimine on viis, kuidas ühest andmetüübist teist saada, Castimist ennast on kahte eri liiki - Automaatne ja 
+            //manuaalne. Automaatne castimine toimub siis, kui teisendatakse väiksemast andmetüübist suuremasse, aga manuaalselt 
+            //on vaja castida siis, kui üritame suuremast andmetüübist väiksemat saada. Manuaalne castimise käib nii, et
+            //sihtmuutuja võrdusmärgi taga oleva muutuja nimetuse ette, pannakse suludes soovitava andmetüübi nimetus.
+
+            double newData1 = 2.22d; //tekitame, või on kuskil olemas, suure mahuga andmed muutujas "newData1" kus on tegu double 
+                                     //andmetüübiga
+            float datafloat = (float)newData1; //"(float)" teisedab double tüüpi andmed float tüüpi andmetakse.
+            long data1Long = (long)newData1; //"(long)"teisedab double tüüpi andmed float tüüpi andmetakse.
+            int data1Int = (int)newData1; //"(int)"teisedab double tüüpi andmed float tüüpi andmetakse.
+            char data1Char = (char)newData1; //"(char)"teisedab double tüüpi andmed float tüüpi andmetakse.)
+
+            //Automaatne Castimine
+            int backToInt = data1Char; //char andmetüübist, suuremasse, int tüüpi andmeteks muutumisel ei ole vaja muutuja ette casti panna
+            long backToLong = backToInt; //int suuremasse, long tüüpi andmetakse teisenndmisel, casti panna ei ole vaja 
+            float backToFloat = backToLong; //long andmetüübist suuremasse, float tüüpi andmeteks teisendamisel, casti panna ei ole vaja 
+            double backToDouble = backToFloat; //float andmetüübist suuremasse, double tüüpi andmetekse teisendamisel, casti panna ei ole vaja 
+
 
             // muutuja nimed 
             int arv = 0; //sobib
@@ -681,6 +711,21 @@ namespace MinuKonspekt
             }
             return summa;
         } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
